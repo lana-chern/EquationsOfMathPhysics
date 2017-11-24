@@ -15,4 +15,3 @@ def calculate(r, t, N, R, c, a, k, l):
         result += numpy.exp(-t / c * (2 * a / l + k * (numpy.power(zeros[i] / R, 2))))
         result += sc.jn(0, zeros[i] / R * r)
     return result
-123
