@@ -5,11 +5,14 @@ radius_entry.insert(0, "12")
 t_entry = Entry()
 t_entry.insert(0, "15")
 
+
 def get_radius():
-    return float(radius_entry.get())
+    return radius_entry.get()
+
 
 def get_time():
-    return float(t_entry.get())
+    return t_entry.get()
+
 
 def init_data_entries(initial_data_frame):
     k_entry = Entry(initial_data_frame, width=10)
@@ -39,4 +42,3 @@ def init_fourier_entries(fourier_series_frame):
     epsilon_entry = Entry(fourier_series_frame, width=10)
     N_entry.grid(row=8, column=1)
     epsilon_entry.grid(row=9, column=1)
-

@@ -44,12 +44,10 @@ def init_graphic_labels(graphics_t_frame, graphics_r_frame):
                     tickinterval=1,
                     resolution=0.1)
 
-    # graphics_r_frame.grid(row=0, column=1, sticky="n")
     graphics1_label.grid(row=0, column=0, padx=5, pady=3)
     fix_r_frame.grid(row=1, column=0, rowspan=7, padx=5, pady=3)
     r_scale.grid(row=8, column=0, padx=5, pady=3)
 
-    # graphics_t_frame.grid(row=1, column=1, sticky="n")
     graphics2_label.grid(row=0, column=0, padx=5, pady=3)
     fix_t_frame.grid(row=1, column=0, rowspan=7, padx=5, pady=3)
     t_scale.grid(row=2, column=0, padx=5, pady=3)
