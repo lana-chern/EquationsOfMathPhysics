@@ -4,6 +4,12 @@ radius_entry = Entry()
 radius_entry.insert(0, "12")
 t_entry = Entry()
 t_entry.insert(0, "15")
+k_entry = Entry()
+c_entry = Entry()
+alpha_entry = Entry()
+L_entry = Entry()
+N_entry = Entry()
+epsilon_entry = Entry()
 
 
 def get_radius():
@@ -12,6 +18,30 @@ def get_radius():
 
 def get_time():
     return t_entry.get()
+
+
+def get_k():
+    return k_entry.get()
+
+
+def get_alpha():
+    return alpha_entry.get()
+
+
+def get_L():
+    return L_entry.get()
+
+
+def get_N():
+    return N_entry.get()
+
+
+def get_epsilon():
+    return epsilon_entry.get()
+
+
+def get_c():
+    return c_entry.get()
 
 
 def init_data_entries(initial_data_frame):

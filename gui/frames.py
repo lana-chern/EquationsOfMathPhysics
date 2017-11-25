@@ -1,4 +1,6 @@
 from tkinter import *
+from gui import graphics
+from gui import entries
 
 
 def init_frames(root):
@@ -17,3 +19,8 @@ def init_frames(root):
 def init_buttons(root):
     but_calculate = Button(root, text="Построить графики")
     but_calculate.grid(row=2, column=0, padx=5, pady=5)
+    but_calculate.event(graphics.print_r_graphic())  #TODO add event on mouse click
+
+
+event:
+    graphics.print_r_graphic(entries.get_time(), entries.get_alpha(), .........)
