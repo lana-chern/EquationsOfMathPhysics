@@ -19,8 +19,11 @@ def init_frames(root):
 def init_buttons(root):
     but_calculate = Button(root, text="Построить графики")
     but_calculate.grid(row=2, column=0, padx=5, pady=5)
-    but_calculate.event(graphics.print_r_graphic())  #TODO add event on mouse click
+    but_calculate.bind("<Button-1>", graphics.print_r_graphic(entries.get_time(), entries.get_N(), entries.get_radius(),
+                                                              entries.get_c(), entries.get_alpha(), entries.get_k(),
+                                                              entries.get_L(), root))
 
-
-event:
-    graphics.print_r_graphic(entries.get_time(), entries.get_alpha(), .........)
+# def print_graph(event):
+#    graphics.print_r_graphic(entries.get_time(), entries.get_N(), entries.get_radius(),
+#                    entries.get_c(), entries.get_alpha(), entries.get_k(),
+#                    entries.get_L(), root)

@@ -1,6 +1,7 @@
 import numpy
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from gui import entries
 import calculation
 
 
@@ -28,3 +29,6 @@ def print_t_graphic(r, N, R, c, a, k, l, T, root):
     canvas.show()
     canvas.get_tk_widget().grid(row=1, column=1)  # позиция
     canvas.draw()
+
+
+

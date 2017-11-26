@@ -13,35 +13,35 @@ epsilon_entry = Entry()
 
 
 def get_radius():
-    return radius_entry.get()
+    return float(radius_entry.get())
 
 
 def get_time():
-    return t_entry.get()
+    return float(t_entry.get())
 
 
 def get_k():
-    return k_entry.get()
+    return float(k_entry.get())
 
 
 def get_alpha():
-    return alpha_entry.get()
+    return float(alpha_entry.get())
 
 
 def get_L():
-    return L_entry.get()
+    return float(L_entry.get())
 
 
 def get_N():
-    return N_entry.get()
+    return int(N_entry.get())
 
 
 def get_epsilon():
-    return epsilon_entry.get()
+    return float(epsilon_entry.get())
 
 
 def get_c():
-    return c_entry.get()
+    return float(c_entry.get())
 
 
 def init_data_entries(initial_data_frame):
@@ -72,3 +72,5 @@ def init_fourier_entries(fourier_series_frame):
     epsilon_entry = Entry(fourier_series_frame, width=10)
     N_entry.grid(row=8, column=1)
     epsilon_entry.grid(row=9, column=1)
+
+    N_entry.insert(0, "1000")
