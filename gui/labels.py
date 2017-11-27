@@ -35,18 +35,18 @@ def init_fourier_labels(fourier_series_frame):
     entries.init_fourier_entries(fourier_series_frame)
 
 
-def init_graphic_labels(graphics_r_frame, graphics_t_frame):
+def init_graphic_labels(graphics_r_frame, graphics_t_frame, radius, time):
     graphics1_label = Label(graphics_r_frame, text="График распределения температуры при фиксированном r:")
     r_scale = Scale(graphics_r_frame, length=300, orient=HORIZONTAL, variable=r_scale_value, from_=0,
-                    to=float(entries.get_radius()),
+                    to=radius,
                     tickinterval=float(entries.get_radius()),
                     resolution=0.1)
 
     graphics2_label = Label(graphics_t_frame, text="График распределения температуры при фиксированном t:")
     t_scale = Scale(graphics_t_frame, length=300, orient=HORIZONTAL, variable=t_scale_value, from_=0,
-                    to=float(entries.get_time()),
+                    to=time,
                     tickinterval=float(entries.get_time()),
-                    resolution=0.5)
+                    resolution=0.05)
 
 
     graphics1_label.grid(row=0, column=0, padx=5, pady=3)

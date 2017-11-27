@@ -50,6 +50,9 @@ def get_epsilon():
 def get_c():
     return float(c.get())
 
+#def scale_r_event(event):
+
+
 
 def init_data_entries(initial_data_frame):
     k_entry = Entry(initial_data_frame, textvariable=k, width=10)
@@ -69,9 +72,11 @@ def init_data_entries(initial_data_frame):
     k.set("0.59")
     c.set("1.65")
     alpha.set("0.006")
-    radius.set("12")
+    radius.set("6")
     L.set("0.3")
     t.set("15")
+
+#    radius_entry.bind("<FocusOut>", scale_r_event)
 
 
 def init_fourier_entries(fourier_series_frame):
