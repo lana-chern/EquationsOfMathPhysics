@@ -19,7 +19,7 @@ class Application(Frame):
     def __init__(self):
         super().__init__()
         self.set_frames(frames.init_frames(self.master))
-        labels.init_data_labels(self.initial_data_frame)
+        labels.init_data_labels(self.initial_data_frame, self.graphics_r_frame, self.graphics_t_frame)
         labels.init_fourier_labels(self.fourier_series_frame)
         labels.init_graphic_labels(self.graphics_r_frame, self.graphics_t_frame, entries.get_radius(), entries.get_time())
         frames.init_buttons(self.master, self.graphics_r_frame, self.graphics_t_frame)

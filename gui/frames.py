@@ -2,6 +2,7 @@ from tkinter import *
 from gui import graphics
 from gui import entries
 from gui import labels
+import calculation
 
 
 def init_frames(root):
@@ -21,21 +22,21 @@ def init_buttons(root, graphics_r_frame, graphics_t_frame):
     but_calculate = Button(root, text="Построить графики")
     but_calculate.grid(row=2, column=0, padx=5, pady=5)
     but_calculate.bind("<Button-1>", print_graph)
-    # graphics.print_r_graphic(labels.t_scale_value.get(), entries.get_N(), entries.get_radius(),
-    #                          entries.get_c(), entries.get_alpha(), entries.get_k(),
-    #                          entries.get_L(), graphics_r_frame))
     data = [graphics_r_frame, graphics_t_frame]
     but_calculate.bind("<Button-1>", lambda event, arg=data: print_graph(event, arg))
-    # graphics.print_t_graphic(labels.r_scale_value.get(), entries.get_N(), entries.get_radius(),
-    #                          entries.get_c(), entries.get_alpha(), entries.get_k(),
-    #                          entries.get_L(), entries.get_time(), graphics_t_frame))
 
 
 def print_graph(event, arg):
-    graphics.print_r_graphic(labels.r_scale_value.get(), entries.get_N(), entries.get_radius(),
+    N = entries.get_N()
+    if entries.get_epsilon() != 0:
+        N = calculation.accuracy(entries.get_epsilon(), entries.get_time(), entries.get_radius(), entries.get_c(),
+                             entries.get_alpha(), entries.get_k(), entries.get_L())
+        print(N)
+
+    graphics.print_r_graphic(labels.r_scale_value.get(), N, entries.get_radius(),
                              entries.get_c(), entries.get_alpha(), entries.get_k(),
                              entries.get_L(), entries.get_time(), arg[0])
-    graphics.print_t_graphic(labels.t_scale_value.get(), entries.get_N(), entries.get_radius(),
+    graphics.print_t_graphic(labels.t_scale_value.get(), N, entries.get_radius(),
                              entries.get_c(), entries.get_alpha(), entries.get_k(),
                              entries.get_L(), entries.get_time(), arg[1])
     print("Ready")

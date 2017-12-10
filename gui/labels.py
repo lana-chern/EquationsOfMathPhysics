@@ -1,11 +1,11 @@
-from gui import entries
+from gui import entries, frames
 from tkinter import *
 
 r_scale_value = DoubleVar()
 t_scale_value = DoubleVar()
 
 
-def init_data_labels(initial_data_frame):
+def init_data_labels(initial_data_frame, graphics_r_frame, graphics_t_frame):
     k_label = Label(initial_data_frame, text="k")
     c_label = Label(initial_data_frame, text="c")
     alpha_label = Label(initial_data_frame, text="α")
@@ -21,7 +21,7 @@ def init_data_labels(initial_data_frame):
     L_label.grid(row=5, column=0, padx=5, pady=3)
     t_label.grid(row=6, column=0, padx=5, pady=3)
     initial_data_lab.grid(row=0, column=0, columnspan=2, padx=5, pady=3, sticky="w")
-    entries.init_data_entries(initial_data_frame)
+    entries.init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame)
 
 
 def init_fourier_labels(fourier_series_frame):
@@ -48,9 +48,26 @@ def init_graphic_labels(graphics_r_frame, graphics_t_frame, radius, time):
                     tickinterval=float(entries.get_time()),
                     resolution=0.05)
 
-
     graphics1_label.grid(row=0, column=0, padx=5, pady=3)
     r_scale.grid(row=3, column=0, padx=5, pady=3)
 
     graphics2_label.grid(row=0, column=0, padx=5, pady=3)
     t_scale.grid(row=2, column=0, padx=5, pady=3)
+
+
+def draw_scale_r(event, arg):
+    r_scale = Scale(arg[0], length=300, orient=HORIZONTAL, variable=r_scale_value, from_=0,
+                    to=float(entries.get_radius()),
+                    tickinterval=float(entries.get_radius()),
+                    resolution=0.1)
+    r_scale.grid(row=3, column=0, padx=5, pady=3)
+    frames.print_graph(event, arg)
+
+
+def draw_scale_t(event, arg):
+    t_scale = Scale(arg[1], length=300, orient=HORIZONTAL, variable=t_scale_value, from_=0,
+                    to=float(entries.get_time()),
+                    tickinterval=float(entries.get_time()),
+                    resolution=0.05)
+    t_scale.grid(row=2, column=0, padx=5, pady=3)
+    frames.print_graph(event, arg)

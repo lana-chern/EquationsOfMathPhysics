@@ -1,4 +1,5 @@
 from tkinter import *
+from gui import labels
 
 radius_entry = Entry()
 t_entry = Entry()
@@ -54,7 +55,7 @@ def get_c():
 
 
 
-def init_data_entries(initial_data_frame):
+def init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame):
     k_entry = Entry(initial_data_frame, textvariable=k, width=10)
     c_entry = Entry(initial_data_frame, textvariable=c, width=10)
     alpha_entry = Entry(initial_data_frame, textvariable=alpha, width=10)
@@ -76,7 +77,9 @@ def init_data_entries(initial_data_frame):
     L.set("0.3")
     t.set("15")
 
-#    radius_entry.bind("<FocusOut>", scale_r_event)
+    data = [graphics_r_frame, graphics_t_frame]
+    radius_entry.bind("<FocusOut>", lambda event, arg=data: labels.draw_scale_r(event, arg))
+    t_entry.bind("<FocusOut>", lambda event, arg=data: labels.draw_scale_t(event, arg))
 
 
 def init_fourier_entries(fourier_series_frame):
@@ -86,3 +89,4 @@ def init_fourier_entries(fourier_series_frame):
     epsilon_entry.grid(row=9, column=1)
 
     N.set("1000")
+    epsilon.set("0")
