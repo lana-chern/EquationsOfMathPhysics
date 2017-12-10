@@ -31,8 +31,6 @@ def print_graph(event, arg):
     if entries.get_epsilon() != 0:
         N = calculation.accuracy(entries.get_epsilon(), entries.get_time(), entries.get_radius(), entries.get_c(),
                              entries.get_alpha(), entries.get_k(), entries.get_L())
-        print(N)
-
     graphics.print_r_graphic(labels.r_scale_value.get(), N, entries.get_radius(),
                              entries.get_c(), entries.get_alpha(), entries.get_k(),
                              entries.get_L(), entries.get_time(), arg[0])

@@ -50,24 +50,21 @@ def init_graphic_labels(graphics_r_frame, graphics_t_frame, radius, time):
 
     graphics1_label.grid(row=0, column=0, padx=5, pady=3)
     r_scale.grid(row=3, column=0, padx=5, pady=3)
-
     graphics2_label.grid(row=0, column=0, padx=5, pady=3)
     t_scale.grid(row=2, column=0, padx=5, pady=3)
 
 
-def draw_scale_r(event, arg):
-    r_scale = Scale(arg[0], length=300, orient=HORIZONTAL, variable=r_scale_value, from_=0,
-                    to=float(entries.get_radius()),
-                    tickinterval=float(entries.get_radius()),
-                    resolution=0.1)
-    r_scale.grid(row=3, column=0, padx=5, pady=3)
+def draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame):
+    list = graphics_r_frame.grid_slaves()
+    for l in list:
+        l.destroy()
+    init_graphic_labels(graphics_r_frame, graphics_t_frame, float(entries.get_radius()), float(entries.get_time()))
     frames.print_graph(event, arg)
 
 
-def draw_scale_t(event, arg):
-    t_scale = Scale(arg[1], length=300, orient=HORIZONTAL, variable=t_scale_value, from_=0,
-                    to=float(entries.get_time()),
-                    tickinterval=float(entries.get_time()),
-                    resolution=0.05)
-    t_scale.grid(row=2, column=0, padx=5, pady=3)
+def draw_scale_t(event, arg, graphics_r_frame, graphics_t_frame):
+    list = graphics_t_frame.grid_slaves()
+    for l in list:
+        l.destroy()
+    init_graphic_labels(graphics_r_frame, graphics_t_frame, float(entries.get_radius()), float(entries.get_time()))
     frames.print_graph(event, arg)
