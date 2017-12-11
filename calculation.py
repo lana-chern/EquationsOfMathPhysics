@@ -19,7 +19,7 @@ def calculate(r, t, N, R, c, a, k, l):
 
 def accuracy(epsilon, t, R, c, a, k, l):
     current_accuracy = 100000
-    n = 1000
+    n = 5
     while current_accuracy > epsilon:
         current_accuracy = numpy.sqrt(math.pi / 2) * numpy.exp(
             -2 * a * t / (l * c) - k * numpy.power(n - 1, 2) * math.pi * math.pi * t / (R * R * c)) * R * R * c / (
@@ -28,6 +28,5 @@ def accuracy(epsilon, t, R, c, a, k, l):
             break
         n += 1
     print(current_accuracy)
-
     print(n)
     return n

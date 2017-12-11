@@ -29,7 +29,7 @@ def init_buttons(root, graphics_r_frame, graphics_t_frame):
 def print_graph(event, arg):
     N = entries.get_N()
     if entries.get_epsilon() != 0:
-        N = calculation.accuracy(entries.get_epsilon(), entries.get_time(), entries.get_radius(), entries.get_c(),
+        N = calculation.accuracy(entries.get_epsilon(), labels.t_scale_value.get(), entries.get_radius(), entries.get_c(),
                              entries.get_alpha(), entries.get_k(), entries.get_L())
     graphics.print_r_graphic(labels.r_scale_value.get(), N, entries.get_radius(),
                              entries.get_c(), entries.get_alpha(), entries.get_k(),
