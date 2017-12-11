@@ -51,9 +51,6 @@ def get_epsilon():
 def get_c():
     return float(c.get())
 
-#def scale_r_event(event):
-
-
 
 def init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame):
     k_entry = Entry(initial_data_frame, textvariable=k, width=10)
@@ -78,8 +75,10 @@ def init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame):
     t.set("15")
 
     data = [graphics_r_frame, graphics_t_frame]
-    radius_entry.bind("<FocusOut>", lambda event, arg=data: labels.draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame))
-    t_entry.bind("<FocusOut>", lambda event, arg=data: labels.draw_scale_t(event, arg, graphics_r_frame, graphics_t_frame))
+    radius_entry.bind("<FocusOut>",
+                      lambda event, arg=data: labels.draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame))
+    t_entry.bind("<FocusOut>",
+                 lambda event, arg=data: labels.draw_scale_t(event, arg, graphics_r_frame, graphics_t_frame))
 
 
 def init_fourier_entries(fourier_series_frame):
