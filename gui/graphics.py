@@ -1,6 +1,7 @@
 import numpy
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as pl
 import calculation
 
 
@@ -28,5 +29,9 @@ def print_t_graphic(t, N, R, c, a, k, l, T, graphics_t_frame):
     canvas.get_tk_widget().grid(row=1, column=0)  # позиция
     canvas.draw()
     canvas.show()
+    v = calculation.calculate_numerically(10, 10, 100, 100, 1, R, T, c, a, k, l)
+    print(v[10])
+    pl.plot(range(100), v[10])
+    pl.show()
 
 
