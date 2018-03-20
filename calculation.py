@@ -81,18 +81,18 @@ def calculate_numerically(I, K, R, T, cc, alpha, q, l):
     a = []
     f = []
 
-    v = [0] * K
+    v = [0] * (K + 1)
     for i in range(K):
-        v[i] = [0] * I
+        v[i] = [0] * (I + 1)
 
-    for j in range(I):
+    for j in range(I + 1):
         if j < I / 2:
             v[0][j] = 1
         else:
             v[0][j] = 0
 
     b.append(2 * gamma)
-    c.append(-2 * gamma + 4 * alpha * ht / (l * cc))
+    c.append(-2 * gamma)
     a.append(0)
     for j in range(1, I):
         b.append(-gamma * (1 + 1 / (2 * j)))
@@ -100,9 +100,10 @@ def calculate_numerically(I, K, R, T, cc, alpha, q, l):
         a.append(-gamma * (1 - 1 / (2 * j)))
     b[I - 1] = 0
 
-    for k in range(1, K):
+    for k in range(1, K + 1):
         for j in range(I):
             f.append(v[k - 1][j])
         v[k] = TDMA(a, b, c, f, I)
+        v[k].append(0)
         f = []
     return v
