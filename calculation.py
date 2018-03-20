@@ -86,7 +86,7 @@ def calculate_numerically(i, k, I, K, N, R, T, cc, alpha, q, l):
         v[i] = [0] * I
 
     for j in range(I):
-        if j <= I / 2:
+        if j < I / 2:
             v[0][j] = 1
         else:
             v[0][j] = 0

@@ -5,33 +5,49 @@ import matplotlib.pyplot as pl
 import calculation
 
 
-def print_r_graphic(r, N, R, c, a, k, l, T, graphics_r_frame):
+def print_r_graphic(r, N, R, c, a, k, l, T, I, K, graphics_r_frame):
+    K = 100
+    I = 100
+    hr = R / I
     f = Figure(figsize=(10, 5), dpi=60)  # изменения размеров
     plot = f.add_subplot(111)
-    t = numpy.linspace(0, T, T * 100)
-    plot.plot(t, calculation.calculate(r, t, N, R, c, a, k, l))
+    t = numpy.linspace(0, T, 100)
+    v = calculation.calculate_numerically(10, 10, I, K, 1, R, T, c, a, k, l)
+    v1 = [0]*K
+    for j in range(K):
+        v1[j] = v[j][int(r / hr)]
+    plot.plot(t, v1, label='Прогонка')
+    plot.plot(t, calculation.calculate(r, t, N, R, c, a, k, l), label='Аналитически')
     plot.set_xlabel("t")
     plot.set_ylabel("u(r, t)")
+    plot.set_ylim(-0.1, 1.1)
+    plot.legend()
     canvas = FigureCanvasTkAgg(f, graphics_r_frame)
     canvas.get_tk_widget().grid(row=1, column=0)  # позиция
     canvas.draw()
     canvas.show()
 
 
-def print_t_graphic(t, N, R, c, a, k, l, T, graphics_t_frame):
+def print_t_graphic(t, N, R, c, a, k, l, T, I, K, graphics_t_frame):
+    K = 100
+    I = 100
+    ht = T / K
     f = Figure(figsize=(10, 5), dpi=60)  # изменения размеров
     plot = f.add_subplot(111)
-    r = numpy.linspace(0, R, R * 100)
-    plot.plot(r, calculation.calculate(r, t, N, R, c, a, k, l))
+    r = numpy.linspace(0, R, 100)
+    v = calculation.calculate_numerically(10, 10, I, K, 1, R, T, c, a, k, l)
+    r1 = numpy.linspace(0, I, I)
+    plot.plot(r, v[int(t / ht)], label='Прогонка')
+    plot.plot(r, calculation.calculate(r, t, N, R, c, a, k, l), label='Аналитически')
     plot.set_xlabel("r")
     plot.set_ylabel("u(r, t)")
+    plot.set_ylim(-0.1, 1.1)
+    plot.legend()
     canvas = FigureCanvasTkAgg(f, graphics_t_frame)
     canvas.get_tk_widget().grid(row=1, column=0)  # позиция
     canvas.draw()
     canvas.show()
-    v = calculation.calculate_numerically(10, 10, 100, 100, 1, R, T, c, a, k, l)
-    print(v[10])
-    pl.plot(range(100), v[10])
-    pl.show()
 
-
+    # print(v[20])
+    # pl.plot(range(100), v[20])
+    # pl.show()
