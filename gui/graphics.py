@@ -6,12 +6,10 @@ import calculation
 
 
 def print_r_graphic(r, N, R, c, a, k, l, T, I, K, graphics_r_frame):
-    K = 100
-    I = 100
     hr = R / I
     f = Figure(figsize=(10, 5), dpi=60)  # изменения размеров
     plot = f.add_subplot(111)
-    t = numpy.linspace(0, T, 100)
+    t = numpy.linspace(0, T, K)
     v = calculation.calculate_numerically(10, 10, I, K, 1, R, T, c, a, k, l)
     v1 = [0]*K
     for j in range(K):
@@ -29,12 +27,10 @@ def print_r_graphic(r, N, R, c, a, k, l, T, I, K, graphics_r_frame):
 
 
 def print_t_graphic(t, N, R, c, a, k, l, T, I, K, graphics_t_frame):
-    K = 100
-    I = 100
     ht = T / K
     f = Figure(figsize=(10, 5), dpi=60)  # изменения размеров
     plot = f.add_subplot(111)
-    r = numpy.linspace(0, R, 100)
+    r = numpy.linspace(0, R, I)
     v = calculation.calculate_numerically(10, 10, I, K, 1, R, T, c, a, k, l)
     r1 = numpy.linspace(0, I, I)
     plot.plot(r, v[int(t / ht)], label='Прогонка')
