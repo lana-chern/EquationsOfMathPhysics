@@ -10,7 +10,7 @@ def print_r_graphic(r, N, R, c, a, k, l, T, I, K, graphics_r_frame):
     f = Figure(figsize=(10, 5), dpi=60)  # изменения размеров
     plot = f.add_subplot(111)
     t = numpy.linspace(0, T, K)
-    v = calculation.calculate_numerically(10, 10, I, K, 1, R, T, c, a, k, l)
+    v = calculation.calculate_numerically(I, K, R, T, c, a, k, l)
     v1 = [0]*K
     for j in range(K):
         v1[j] = v[j][int(r / hr)]
@@ -31,8 +31,8 @@ def print_t_graphic(t, N, R, c, a, k, l, T, I, K, graphics_t_frame):
     f = Figure(figsize=(10, 5), dpi=60)  # изменения размеров
     plot = f.add_subplot(111)
     r = numpy.linspace(0, R, I)
-    v = calculation.calculate_numerically(10, 10, I, K, 1, R, T, c, a, k, l)
-    r1 = numpy.linspace(0, I, I)
+    v = calculation.calculate_numerically(I, K, R, T, c, a, k, l)
+    #r1 = numpy.linspace(0, I, I)
     plot.plot(r, v[int(t / ht)], label='Прогонка')
     plot.plot(r, calculation.calculate(r, t, N, R, c, a, k, l), label='Аналитически')
     plot.set_xlabel("r")

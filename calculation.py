@@ -72,7 +72,7 @@ def TDMA(a, b, c, f, I):
     return x
 
 
-def calculate_numerically(i, k, I, K, N, R, T, cc, alpha, q, l):
+def calculate_numerically(I, K, R, T, cc, alpha, q, l):
     hr = R / I
     ht = T / K
     gamma = q * ht / (cc * hr * hr)

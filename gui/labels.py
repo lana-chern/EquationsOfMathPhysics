@@ -10,7 +10,7 @@ def init_data_labels(initial_data_frame, graphics_r_frame, graphics_t_frame):
     c_label = Label(initial_data_frame, text="c")
     alpha_label = Label(initial_data_frame, text="α")
     radius_label = Label(initial_data_frame, text="R")
-    L_label = Label(initial_data_frame, text="l")
+    L_label = Label(initial_data_frame, text="L")
     t_label = Label(initial_data_frame, text="T")
     initial_data_lab = Label(initial_data_frame, text="Начальные данные:")
 
@@ -68,7 +68,6 @@ def init_graphic_labels(graphics_r_frame, graphics_t_frame, radius, time, hr, ht
 def draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame):
     hr = entries.get_radius()/entries.get_I()
     ht = entries.get_time()/entries.get_K()
-
     list = graphics_r_frame.grid_slaves()
     for l in list:
         l.destroy()
