@@ -5,7 +5,7 @@ r_scale_value = DoubleVar()
 t_scale_value = DoubleVar()
 
 
-def init_data_labels(initial_data_frame, graphics_r_frame, graphics_t_frame):
+def init_data_labels(initial_data_frame, graphics_r_frame, graphics_t_frame, graphic):
     q_label = Label(initial_data_frame, text="q")
     c_label = Label(initial_data_frame, text="c")
     alpha_label = Label(initial_data_frame, text="α")
@@ -21,7 +21,7 @@ def init_data_labels(initial_data_frame, graphics_r_frame, graphics_t_frame):
     L_label.grid(row=5, column=0, padx=5, pady=3)
     t_label.grid(row=6, column=0, padx=5, pady=3)
     initial_data_lab.grid(row=0, column=0, columnspan=2, padx=5, pady=3, sticky="w")
-    entries.init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame)
+    entries.init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame, graphic)
 
 
 def init_fourier_labels(fourier_series_frame):
@@ -58,7 +58,6 @@ def init_graphic_labels(graphics_r_frame, graphics_t_frame, radius, time, hr, ht
                     to=time,
                     tickinterval=float(entries.get_time()),
                     resolution=ht)
-
     graphics1_label.grid(row=0, column=0, padx=5, pady=3)
     r_scale.grid(row=3, column=0, padx=5, pady=3)
     graphics2_label.grid(row=0, column=0, padx=5, pady=3)

@@ -53,7 +53,7 @@ def TDMA(a, b, c, f, I):
     *x - решение, массив x будет содержать ответ
     """
 
-    #a, b, c, f = map(lambda k_list: map(float, k_list), (a, b, c, f))
+    # a, b, c, f = map(lambda k_list: map(float, k_list), (a, b, c, f))
 
     alpha = [0]
     beta = [0]
@@ -91,8 +91,8 @@ def calculate_numerically(I, K, R, T, cc, alpha, q, l):
         else:
             v[0][j] = 0
 
-    b.append(2 * gamma)
-    c.append(-2 * gamma)
+    b.append(-4 * gamma)
+    c.append(1 + 4 * gamma + 2 * alpha * ht / (l * cc))
     a.append(0)
     for j in range(1, I):
         b.append(-gamma * (1 + 1 / (2 * j)))

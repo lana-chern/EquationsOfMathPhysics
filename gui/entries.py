@@ -1,5 +1,6 @@
 from tkinter import *
 from gui import labels
+from gui.graphics import MyGraphics
 
 radius_entry = Entry()
 t_entry = Entry()
@@ -67,7 +68,7 @@ def get_I():
     return int(I.get())
 
 
-def init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame):
+def init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame, graphic):
     q_entry = Entry(initial_data_frame, textvariable=q, width=10)
     c_entry = Entry(initial_data_frame, textvariable=c, width=10)
     alpha_entry = Entry(initial_data_frame, textvariable=alpha, width=10)
@@ -89,7 +90,7 @@ def init_data_entries(initial_data_frame, graphics_r_frame, graphics_t_frame):
     L.set("0.3")
     t.set("15")
 
-    data = [graphics_r_frame, graphics_t_frame]
+    data = [graphics_r_frame, graphics_t_frame, graphic]
     radius_entry.bind("<FocusOut>",
                       lambda event, arg=data: labels.draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame))
     t_entry.bind("<FocusOut>",
@@ -113,9 +114,7 @@ def init_numerically_entries(numerically_frame, graphics_r_frame, graphics_t_fra
     I_entry.grid(row=2, column=1)
 
     data = [graphics_r_frame, graphics_t_frame]
-    K_entry.bind("<FocusOut>",
-                      lambda event, arg=data: labels.draw_scale_t(event, arg, graphics_r_frame, graphics_t_frame))
-    I_entry.bind("<FocusOut>",
-                      lambda event, arg=data: labels.draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame))
-
-
+    # K_entry.bind("<FocusOut>",
+    #                  lambda event, arg=data: labels.draw_scale_t(event, arg, graphics_r_frame, graphics_t_frame))
+    # I_entry.bind("<FocusOut>",
+    #                  lambda event, arg=data: labels.draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame))
