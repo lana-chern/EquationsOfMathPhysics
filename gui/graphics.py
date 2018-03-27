@@ -59,3 +59,20 @@ class MyGraphics:
         canvas.get_tk_widget().grid(row=1, column=0)  # позиция
         canvas.draw()
         canvas.show()
+
+    def experiment(self, I, K, N, R, c, a, q, l, T):
+        #hr = R / I
+        #ht = T / K
+        t = numpy.linspace(0, T, K + 1)
+        r = numpy.linspace(0, R, I + 1)
+        v1 = numpy.zeros((K + 1, I + 1))
+        for i in range(len(t)):
+            for j in range(len(r)):
+                v1[i][j] = calculation.calculate(r[j], t[i], N, R, c, a, q, l)
+        max = -numpy.inf
+        for i in range(K + 1):
+            for j in range(I + 1):
+                temp = numpy.abs(self.v[i][j] - v1[i][j])
+                if temp > max:
+                    max = temp
+        return max

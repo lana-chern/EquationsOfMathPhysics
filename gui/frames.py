@@ -35,9 +35,9 @@ def print_graph(event, arg):
     if entries.get_epsilon() != 0:
         N = calculation.accuracy(entries.get_epsilon(), labels.t_scale_value.get(), entries.get_radius(),
                                  entries.get_c(), entries.get_alpha(), entries.get_q(), entries.get_L())
-    else:
-        calculation.accuracy_e(N, labels.t_scale_value.get(), entries.get_radius(),
-                               entries.get_c(), entries.get_alpha(), entries.get_q(), entries.get_L())
+    #else:
+        #calculation.accuracy_e(N, labels.t_scale_value.get(), entries.get_radius(),
+         #                      entries.get_c(), entries.get_alpha(), entries.get_q(), entries.get_L())
 
     graphic = arg[2]
     graphic.print_r_graphic(labels.r_scale_value.get(), N, entries.get_radius(),
@@ -47,4 +47,7 @@ def print_graph(event, arg):
                             entries.get_c(), entries.get_alpha(), entries.get_q(),
                             entries.get_L(), entries.get_time(), entries.get_I(), entries.get_K(), arg[1])
 
+    max1 = graphic.experiment(entries.get_I(), entries.get_K(), N, entries.get_radius(), entries.get_c(),
+                              entries.get_alpha(), entries.get_q(), entries.get_L(), entries.get_time())
+    print("max:", max1)
     print("Ready")
