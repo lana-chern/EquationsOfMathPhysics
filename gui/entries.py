@@ -1,6 +1,5 @@
 from tkinter import *
 from gui import labels
-from gui.graphics import MyGraphics
 
 radius_entry = Entry()
 t_entry = Entry()
@@ -112,9 +111,3 @@ def init_numerically_entries(numerically_frame, graphics_r_frame, graphics_t_fra
     I_entry = Entry(numerically_frame, textvariable=I, width=10)
     K_entry.grid(row=1, column=1)
     I_entry.grid(row=2, column=1)
-
-    data = [graphics_r_frame, graphics_t_frame]
-    # K_entry.bind("<FocusOut>",
-    #                  lambda event, arg=data: labels.draw_scale_t(event, arg, graphics_r_frame, graphics_t_frame))
-    # I_entry.bind("<FocusOut>",
-    #                  lambda event, arg=data: labels.draw_scale_r(event, arg, graphics_r_frame, graphics_t_frame))

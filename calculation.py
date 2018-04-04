@@ -11,9 +11,9 @@ def calculate(r, t, N, R, c, a, k, l):
     result = 0
     zeros = sc.jn_zeros(0, N)
     for i in range(N):
-        result += psi_i(zeros[i]) * numpy.exp(-t * (2 * a / l + k *
-                                                    (numpy.power(zeros[i] / R, 2))) / c) * \
-                  sc.jn(0, zeros[i] / R * r)
+        result += psi_i(zeros[i]) * numpy.exp(-t * (2 * a / l + k * (numpy.power(zeros[i] / R, 2))) / c) * sc.jn(0,
+                                                                                                                 zeros[
+                                                                                                                     i] / R * r)
     return result
 
 

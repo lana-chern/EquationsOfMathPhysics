@@ -29,6 +29,7 @@ class MyGraphics:
             v1[j] = self.v[j][int(r / hr)]
         plot.plot(t, v1, label='Прогонка')
         plot.plot(t, calculation.calculate(r, t, N, R, c, a, q, l), label='Аналитически')
+        print(calculation.calculate(R/2, t[0], N, R, c, a, q, l))
         plot.set_xlabel("t")
         plot.set_ylabel("u(r, t)")
         plot.set_ylim(-0.1, 1.1)
@@ -61,18 +62,13 @@ class MyGraphics:
         canvas.show()
 
     def experiment(self, I, K, N, R, c, a, q, l, T):
-        #hr = R / I
-        #ht = T / K
         t = numpy.linspace(0, T, K + 1)
         r = numpy.linspace(0, R, I + 1)
-        v1 = numpy.zeros((K + 1, I + 1))
-        for i in range(len(t)):
-            for j in range(len(r)):
-                v1[i][j] = calculation.calculate(r[j], t[i], N, R, c, a, q, l)
+        v1 = calculation.calculate_numerically(I*2, K*4,  R, T, c, a, q, l)
         max = -numpy.inf
-        for i in range(K + 1):
+        for i in range(1, K + 1):
             for j in range(I + 1):
-                temp = numpy.abs(self.v[i][j] - v1[i][j])
+                temp = numpy.abs(self.v[i][j] - v1[i*4][j*2])
                 if temp > max:
                     max = temp
         return max

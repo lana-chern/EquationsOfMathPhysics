@@ -1,9 +1,7 @@
 from tkinter import *
-from gui import graphics
 from gui import entries
 from gui import labels
 import calculation
-from gui.graphics import MyGraphics
 
 
 def init_frames(root):
